@@ -1,0 +1,41 @@
+Package: crgg
+Version: 0.1
+Title: Personal themes for 'ggplot2'
+Authors@R: c(person("Reitan", "Christian", role = c("aut", "cre"),
+    email = "reitan.christiand@gmail.com", 
+    comment = "<https://orcid.org/0000-0002-6460-4853>"))
+Depends:
+    R (>= 3.3.0)
+Imports:
+    ggplot2 (>= 3.0.0),
+    graphics,
+    grid,
+    methods,
+    purrr,
+    scales,
+    stringr,
+    tibble
+Suggests:
+    dplyr,
+    covr,
+    extrafont,
+    glue,
+    knitr,
+    lattice,
+    lintr,
+    maps,
+    mapproj,
+    pander,
+    rlang,
+    rmarkdown,
+    spelling,    
+    testthat,
+    tidyr,
+    vdiffr,
+    withr
+Description: Personal themes for 'ggplot2'.
+License: GPL-2
+RoxygenNote: 7.1.2
+LazyData: true
+Language: en-US
+Encoding: UTF-8
