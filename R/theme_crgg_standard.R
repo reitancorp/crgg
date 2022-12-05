@@ -2,7 +2,7 @@
 #'
 #' A minimal theme with axis lines. Available in white, black, grey and offwhite.
 #'
-#' @inheritParams ggplot2::theme_classic
+# #' @inheritParams ggplot2::theme_classic()
 #' @param horizontal \code{logical} Horizontal axis lines (\code{TRUE/FALSE}).
 #' @param bgcolor \code{character} Default is \code{white}; white bakground. Options are \code{c("white", "grey", "offwhite", "black")}
 #' @param  base_size \code{integer} Adjusts all fonts and spacing etc. Default is \code{8}.
@@ -58,7 +58,7 @@ theme_crgg_standard <- function(base_size = 8, base_family = "Palatino",
           legend.direction = NULL,
           legend.justification = "center",
           ## Panel
-          panel.background = element_rect(linetype = 0),
+          panel.background = element_rect(linetype = 0, fill='transparent'),
           panel.border = element_blank(),
           panel.grid.major = element_blank(),
           panel.grid.minor = element_blank(),
@@ -84,14 +84,14 @@ theme_crgg_standard <- function(base_size = 8, base_family = "Palatino",
   # Grey theme
   if (bgcolor == "grey") {
     ret <- ret + theme(plot.background = element_rect(fill = "lightgrey"),
-                       panel.background = element_rect(fill = "lightgrey"),
+                       panel.background = element_rect(fill = "transparent"),
                        legend.background = element_rect(fill = "lightgrey"),
                        legend.key = element_rect(linetype = 0, size = 0, color = "lightgrey"))
   }
   # Offwhite theme
   if (bgcolor == "offwhite") {
     ret <- ret + theme(plot.background = element_rect(fill = "#FAF9F6"),
-                       panel.background = element_rect(fill = "#FAF9F6"),
+                       panel.background = element_rect(fill = "#transparent"),
                        legend.background = element_rect(fill = "#FAF9F6"),
                        legend.key = element_rect(linetype = 0, size = 0, color = "#FAF9F6"))
   }
@@ -100,7 +100,7 @@ theme_crgg_standard <- function(base_size = 8, base_family = "Palatino",
     ret <- ret + theme(text = element_text(colour = "white"),
                        axis.line = element_line(color = "white"),
                        plot.background = element_rect(fill = "black"),
-                       panel.background = element_rect(fill = "black"),
+                       panel.background = element_rect(fill = "transparent"),
                        legend.background = element_rect(fill = "black"),
                        axis.ticks = element_line(colour = "white"))
   }
@@ -120,36 +120,4 @@ theme_crgg_standard <- function(base_size = 8, base_family = "Palatino",
     ret <- ret + theme(panel.grid.major.y = element_blank())
   }
   ret
-}
-
-
-#' CR´s Karoliska Institutet ggplot theme
-#'
-#' A minimal theme with axis lines. Available in white, black, grey and offwhite. Uses KIs official font DM Sans (Which you should install separately at https://fonts.google.com/specimen/DM+Sans)
-#'
-#' @inheritParams ggplot2::theme_classic
-#' @param horizontal \code{logical} Horizontal axis lines (\code{TRUE/FALSE}).
-#' @param bgcolor \code{character} Default is \code{white}; white bakground. Options are \code{c("white", "grey", "offwhite", "black")}
-#' @param  base_size \code{integer} Adjusts all fonts and spacing etc. Default is \code{8}.
-#' @param base_family \code{character} A character vector specifying font. For this KI theme default is \code{"DM Sans"}, but can be substituted.
-#' Most standard fonts should installed on your system should work. Recommended are:
-#'
-#' \itemize{"DM Sans"} (Default)
-#' \itemize{"Adobe Caslon Pro} (Must be separately installed, and may be expensive, but oh so beautiful.)
-#' \itemize{"Helvetica"}
-#' \itemize{"Optima"}
-#' \itemize{"CMU Serif"} (Must be installed from web, but looks darn good.)
-#'
-#' @return An object of class \code{\link[ggplot2]{theme}()}.
-#'
-#' @export
-#' @family themes crgg
-#'
-#'
-#  Create a KI theme with standard KI font
-theme_ki_standard <- function(base_size = 8, base_family = "DM Sans",
-                              horizontal = TRUE, bgcolor = "white"){
-  ret  <- theme_crgg_standard(base_size = base_size, base_family = base_family,
-                   horizontal = horizontal, bgcolor = bgcolor)
-
 }

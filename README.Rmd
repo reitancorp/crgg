@@ -1,13 +1,27 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+library(tidyverse)
+library(patchwork)
+library(crgg)
+```
 
 # crgg
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-`crgg` is a package with my personal themes. I think they are really
-nice and possibly useful for others too.
+`crgg` is a package with my personal themes. I think they are really nice and possibly useful for others too.
 
 ## Installation
 
@@ -20,21 +34,18 @@ devtools::install_github("reitancorp/crgg")
 
 ## Usage
 
-`crgg` includes two themes, `theme_crgg_minimal()` and
-`theme_crgg_standard()`. They can be used like any standard `ggplot`
-theme:
+`crgg` includes two themes, `theme_crgg_minimal()` and `theme_crgg_standard()`. They can be used like any standard `ggplot` theme:
 
-``` r
+```{r example, eval = F}
 library(ggplot)
 library(crgg)
 ...
 my_ggplot + theme_crgg_standard()
 ```
 
-What’s the differeence between the minimal and standard themes? Lets
-check:
+What's the differeence between the minimal and standard themes? Lets check:
 
-``` r
+```{r fig.height=3.5}
 myplot <-
   cars %>%
   ggplot(aes(x = speed, y = dist)) +
@@ -44,33 +55,21 @@ p2 <- myplot + theme_crgg_standard()
 p1 + p2
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
-
 So, as you can see, minimal has no axis lines, but standard does.
 
 ## Fonts
+The themes includes the arguments `base_size` and `base_size` which controls font size and typeface. The standard is `base_size = 8` and `base_family = "Palatino"`. Note that the font needs to be installed on your computer, and fonts at least works fine on MacOS. 
 
-The themes includes the arguments `base_size` and `base_size` which
-controls font size and typeface. The standard is `base_size = 8` and
-`base_family = "Palatino"`. Note that the font needs to be installed on
-your computer, and fonts at least works fine on MacOS.
-
-``` r
+```{r fig.height=3.5}
 p3 <- myplot + theme_crgg_minimal(base_size = 12, base_family = "Helvetica")
 p4 <- myplot + theme_crgg_standard(base_siz = 8, base_family = "Impact")
 p3 + p4
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
-
 ## Color themes
+The themes also includes some standard color schemes through the argument `bgcolor`. Options for `theme_crgg_minimal()` are `"white"`or  `"black"`. For `theme_crgg_standard()`, `"white"`, `"grey"`, `"offwhite"`, `"black"`
 
-The themes also includes some standard color schemes through the
-argument `bgcolor`. Options for `theme_crgg_minimal()` are `"white"`or
-`"black"`. For `theme_crgg_standard()`, `"white"`, `"grey"`,
-`"offwhite"`, `"black"`
-
-``` r
+```{r }
 p6 <- myplot + theme_crgg_standard(bgcolor = "white")
 p7 <- myplot + theme_crgg_standard(bgcolor = "grey")
 p8 <- myplot + theme_crgg_standard(bgcolor = "offwhite")
@@ -78,39 +77,26 @@ p9 <- myplot + theme_crgg_standard(bgcolor = "black")
 (p6 + p7) / (p8 + p9)
 ```
 
-<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+
 
 ## Horizontal lines
-
-Use `horizontal = TRUE`for horizontal lines.
-
-``` r
+Use `horizontal = TRUE`for horizontal lines. 
+```{r }
 myplot + theme_crgg_standard(horizontal = T)
 ```
 
-<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
 
 # KI color palettes
 
-Because I am affiliated with KI I sometimes have to use their official
-graphic profile.
+Because I am affiliated with KI I sometimes have to use their official graphic profile. 
 
-NOTE: For the full KI experience, you should use the above themes with
-`base_family = "DM Sans"`. Note that DM Sans must be installed, but hey,
-it’s free. Downoad it at <https://fonts.google.com/specimen/DM+Sans>.
+NOTE: For the full KI experience, you should use the above themes with `base_family = "DM Sans"`. Note that DM Sans must be installed, but hey, it's free. Downoad it at [https://fonts.google.com/specimen/DM+Sans](https://fonts.google.com/specimen/DM+Sans).
 
-The package includes the color palette functions `scale_fill_ki_d()`,
-`scale_fill_ki_c()`, `scale_color_ki_d()` and `scale_color_ki_()`. The
-palettes are defined in HEX colors from
-<https://medarbetare.ki.se/farger-i-kis-grafiska-profil>. It includes
-four palettes which can be ordered in different ways
-(`order = c("original", "gradient", "hue")`). Use whichever order you
-like, but if you have continuous variables, the `"gradient"` option
-(default) might serve you best.
+The package includes the color palette functions `scale_fill_ki_d()`, `scale_fill_ki_c()`, `scale_color_ki_d()` and `scale_color_ki_()`. The palettes are defined in HEX colors from https://medarbetare.ki.se/farger-i-kis-grafiska-profil. It includes four palettes which can be ordered in different ways (`order = c("original", "gradient", "hue")`). Use whichever order you like, but if you have continuous variables, the `"gradient"` option (default) might serve you best.  
 
-Let’s have a look:
+Let's have a look:
 
-``` r
+```{r}
 barplot5 <-
   mtcars %>%
   arrange(desc(disp)) %>%
@@ -137,15 +123,14 @@ p13 <- barplot +
 (p10 + p11) / (p12 + p13)
 ```
 
-<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
+Note that `ki_primary` only contains 5 colors. 
 
-Note that `ki_primary` only contains 5 colors.
 
 ## Putting it all together
 
 Lets make a nice graph:
 
-``` r
+```{r}
 mtcars %>%
    ggplot(aes(x= mpg, y = disp, color = factor(cyl))) +
   geom_point() +
@@ -159,4 +144,3 @@ mtcars %>%
        title = "Compelling title")
 ```
 
-<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
