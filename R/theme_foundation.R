@@ -33,5 +33,6 @@ theme_foundation <- function(base_size=8, base_family="") {
               legend.background = element_rect(colour = NA),
               line = element_line(colour = "black"),
               rect = element_rect(fill = "white", colour = "black"),
-              text = element_text(colour = "black"))
+              text = element_text(colour = "black"),
+              strip.clip = "off")
 }
