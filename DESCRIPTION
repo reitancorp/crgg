@@ -35,7 +35,7 @@ Suggests:
     withr
 Description: Personal themes for 'ggplot2'.
 License: GPL-2
-RoxygenNote: 7.1.2
+RoxygenNote: 7.3.1
 LazyData: true
 Language: en-US
 Encoding: UTF-8

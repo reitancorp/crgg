@@ -4,15 +4,12 @@
 #'
 #' @param horizontal \code{logical} Horizontal axis lines (\code{TRUE/FALSE}).
 #' @param bgcolor \code{character} Default is \code{white}; white bakground. Options are \code{c("white", "grey", "offwhite", "black")}
-#' @param  base_size \code{integer} Adjusts all fonts and spacing etc. Default is \code{8}.
-#' @param base_family \code{character} A character vector specifying font. For this KI theme default is \code{"DM Sans"}, but can be substituted.
+#' @param base_size \code{integer} Adjusts all fonts and spacing etc. Default is \code{8}.
+#' @param base_family \code{character} A character vector specifying font. For this DS theme default is \code{"Arial"}, but can be substituted.
 #' Most standard fonts should installed on your system should work. Recommended are:
 #'
-#' \itemize{"DM Sans"} (Default)
-#' \itemize{"Adobe Caslon Pro"} (Must be separately installed, and may be expensive, but oh so beautiful.)
-#' \itemize{"Helvetica"}
-#' \itemize{"Optima"}
-#' \itemize{"CMU Serif"} (Must be installed from web, but looks darn good.)
+#' \itemize{"Arial"} (Default sans serif font)
+#' \itemize{"Times New Roman"} (Default serif font.)
 #'
 #' @return An object of class \code{\link[ggplot2]{theme}()}.
 #'
@@ -21,7 +18,7 @@
 #'
 #'
 #  Create a KI theme with standard KI font
-theme_ki_standard <- function(base_size = 8, base_family = "DM Sans",
+theme_ds_standard <- function(base_size = 8, base_family = "Arial",
                               horizontal = TRUE, bgcolor = "white"){
   ret  <- theme_crgg_standard(base_size = base_size, base_family = base_family,
                               horizontal = horizontal, bgcolor = bgcolor)

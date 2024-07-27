@@ -30,6 +30,7 @@ A white, minimal theme with serif Palatino font.
 \seealso{
 Other themes crgg: 
 \code{\link{theme_crgg_standard}()},
+\code{\link{theme_ds_standard}()},
 \code{\link{theme_ki_standard}()}
 }
 \concept{themes crgg}

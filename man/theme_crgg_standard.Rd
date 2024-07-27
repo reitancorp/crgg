@@ -34,6 +34,7 @@ A minimal theme with axis lines. Available in white, black, grey and offwhite.
 \seealso{
 Other themes crgg: 
 \code{\link{theme_crgg_minimal}()},
+\code{\link{theme_ds_standard}()},
 \code{\link{theme_ki_standard}()}
 }
 \concept{themes crgg}
