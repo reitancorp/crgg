@@ -2,33 +2,34 @@
 % Please edit documentation in R/theme_dsab.R
 \name{theme_ds_standard}
 \alias{theme_ds_standard}
-\title{CR´s Karoliska Institutet ggplot theme}
+\title{DSAB minimal axis ggplot2 theme}
 \usage{
 theme_ds_standard(
-  base_size = 8,
+  base_size = 11,
   base_family = "Arial",
-  horizontal = TRUE,
-  bgcolor = "white"
+  axis_line_colour = "black",
+  axis_line_width = 0.5,
+  legend = FALSE
 )
 }
 \arguments{
-\item{base_size}{\code{integer} Adjusts all fonts and spacing etc. Default is \code{8}.}
+\item{base_size}{\code{numeric} Base font size. Default is \code{11}.}
 
-\item{base_family}{\code{character} A character vector specifying font. For this DS theme default is \code{"Arial"}, but can be substituted.
-Most standard fonts should installed on your system should work. Recommended are:
+\item{base_family}{\code{character} Font family. Default is \code{"Arial"}.}
 
-\itemize{"Arial"} (Default sans serif font)
-\itemize{"Times New Roman"} (Default serif font.)}
+\item{axis_line_colour}{\code{character} Colour for axis lines. Default is \code{"black"}.}
 
-\item{horizontal}{\code{logical} Horizontal axis lines (\code{TRUE/FALSE}).}
+\item{axis_line_width}{\code{numeric} Line width for axis lines. Default is \code{0.5}.}
 
-\item{bgcolor}{\code{character} Default is \code{white}; white bakground. Options are \code{c("white", "grey", "offwhite", "black")}}
+\item{legend}{\code{logical} Show legend? Default is \code{FALSE}.}
 }
 \value{
 An object of class \code{\link[ggplot2]{theme}()}.
 }
 \description{
-A minimal theme with axis lines. Available in white, black, grey and offwhite. Uses KIs official font DM Sans (Which you should install separately at https://fonts.google.com/specimen/DM+Sans)
+A clean theme that keeps only axis lines, axis text, and axis titles.
+Uses Arial by default. Removes panel grid, background, and other
+non-essential elements. Conforms to the DSAB graphical profile.
 }
 \seealso{
 Other themes crgg: 
