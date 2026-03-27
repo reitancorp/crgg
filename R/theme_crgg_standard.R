@@ -46,7 +46,7 @@ theme_crgg_standard <- function(base_size = 8, base_family = "Palatino",
           ## Legend
           legend.background = element_rect(linetype = 0),
           legend.spacing = unit(base_size * 1.5, "points"),
-          legend.key = element_rect(linetype = 0, size = 0, color = "white"),
+          legend.key = element_rect(linetype = 0, linewidth = 0, color = "white"),
           legend.key.size = unit(1, "lines"),
           legend.key.height = NULL,
           legend.key.width = NULL,
@@ -86,14 +86,14 @@ theme_crgg_standard <- function(base_size = 8, base_family = "Palatino",
     ret <- ret + theme(plot.background = element_rect(fill = "lightgrey"),
                        panel.background = element_rect(fill = "transparent"),
                        legend.background = element_rect(fill = "lightgrey"),
-                       legend.key = element_rect(linetype = 0, size = 0, color = "lightgrey"))
+                       legend.key = element_rect(linetype = 0, linewidth = 0, color = "lightgrey"))
   }
   # Offwhite theme
   if (bgcolor == "offwhite") {
     ret <- ret + theme(plot.background = element_rect(fill = "#FAF9F6"),
                        panel.background = element_rect(fill = "#transparent"),
                        legend.background = element_rect(fill = "#FAF9F6"),
-                       legend.key = element_rect(linetype = 0, size = 0, color = "#FAF9F6"))
+                       legend.key = element_rect(linetype = 0, linewidth = 0, color = "#FAF9F6"))
   }
   # Black theme
   if (bgcolor == "black") {

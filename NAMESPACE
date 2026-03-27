@@ -3,6 +3,8 @@
 export(ds_pal)
 export(ds_palette)
 export(scale_color_ds)
+export(scale_color_ki_c)
+export(scale_color_ki_d)
 export(scale_colour_ds)
 export(scale_colour_ki_c)
 export(scale_colour_ki_d)

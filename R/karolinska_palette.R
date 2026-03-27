@@ -1,13 +1,13 @@
-#' Kaolinska Institutets official color palettes
+#' Karolinska Institutets official color palettes
 #'
-#' The colour palettes can be found on KI´s webpages https://medarbetare.ki.se/farger-i-kis-grafiska-profil
+#' The colour palettes can be found on KI's webpages https://medarbetare.ki.se/farger-i-kis-grafiska-profil
 #'
-#' @param  order The ordering of colors. Default is \code{"gradient"}. Options are \code{c("gradient", "hue", "original")}.
-#' @param name The palette used. Default is \code{"ki_primary"}. Options are \code{c("ki_primary", "ki_function_1", "ki_function_2", "ki_function_3")}
+#' @param palettename The palette used. Default is \code{"ki_primary"}. Options are \code{c("ki_primary", "ki_function_1", "ki_function_2", "ki_function_3")}.
+#' @param n Number of colors to return. Defaults to the full palette length.
+#' @param type \code{"discrete"} or \code{"continuous"}.
+#' @param order The ordering of colors. Default is \code{"gradient"}. Options are \code{c("gradient", "hue", "color", "original")}.
 #'
-
-
-ki_palettes = function(palettename = "ki_primary", n,type = c("discrete", "continuous"), order = c("gradient", "hue", "color", "original")) {
+ki_palettes = function(palettename = "ki_primary", n, type = c("discrete", "continuous"), order = c("gradient", "hue", "color", "original")) {
   all_palettes = list(
     ki_primary = c("#4F0433", "#FF876F", "#FEEEEB", "#EDF4F4", "#870052"),
     ki_function_1 = c("#B84145", "#FF876F", "#FFDDD6",'#C7ECDC',  '#54B986', '#094334'),
@@ -37,32 +37,55 @@ ki_palettes = function(palettename = "ki_primary", n,type = c("discrete", "conti
 
 
 
+#' KI discrete colour scale
+#' @param palettename KI palette name. Default \code{"ki_primary"}.
+#' @param order Colour ordering. Default \code{"gradient"}.
+#' @param ... Additional arguments passed to \code{\link[ggplot2]{scale_colour_manual}()}.
 #' @export
-scale_colour_ki_d = function(palettename = "ki_primary", order = "gradient") {
+scale_colour_ki_d = function(palettename = "ki_primary", order = "gradient", ...) {
   ggplot2::scale_colour_manual(values = ki_palettes(palettename,
                                                     type = "discrete",
-                                                    order = order))
+                                                    order = order), ...)
 }
+
+#' KI discrete fill scale
+#' @param palettename KI palette name. Default \code{"ki_primary"}.
+#' @param order Colour ordering. Default \code{"gradient"}.
+#' @param ... Additional arguments passed to \code{\link[ggplot2]{scale_fill_manual}()}.
 #' @export
-scale_fill_ki_d = function(palettename = "ki_primary", order = "gradient") {
+scale_fill_ki_d = function(palettename = "ki_primary", order = "gradient", ...) {
   ggplot2::scale_fill_manual(values = ki_palettes(palettename,
                                                   type = "discrete",
-                                                  order = order))
+                                                  order = order), ...)
 }
+
+#' KI continuous colour scale
+#' @param palettename KI palette name. Default \code{"ki_primary"}.
+#' @param order Colour ordering. Default \code{"gradient"}.
+#' @param ... Additional arguments passed to \code{\link[ggplot2]{scale_colour_gradientn}()}.
 #' @export
-scale_colour_ki_c = function(palettename = "ki_primary", order = "gradient") {
+scale_colour_ki_c = function(palettename = "ki_primary", order = "gradient", ...) {
   ggplot2::scale_colour_gradientn(colours = ki_palettes(palettename = palettename,
                                                         type = "continuous",
-                                                        order = order))
+                                                        order = order), ...)
 }
+
+#' KI continuous fill scale
+#' @param palettename KI palette name. Default \code{"ki_primary"}.
+#' @param order Colour ordering. Default \code{"gradient"}.
+#' @param ... Additional arguments passed to \code{\link[ggplot2]{scale_fill_gradientn}()}.
 #' @export
-scale_fill_ki_c = function(palettename = "ki_primary", order = "gradient") {
+scale_fill_ki_c = function(palettename = "ki_primary", order = "gradient", ...) {
   ggplot2::scale_fill_gradientn(colours = ki_palettes(palettename = palettename,
                                                       type = "continuous",
-                                                      order = order))
+                                                      order = order), ...)
 }
 
-
+#' @rdname scale_colour_ki_d
+#' @export
 scale_color_ki_d = scale_colour_ki_d
+
+#' @rdname scale_colour_ki_c
+#' @export
 scale_color_ki_c = scale_colour_ki_c
 
